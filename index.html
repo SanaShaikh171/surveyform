@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Survey Form</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-        }
+
         body {
             min-height: 100vh;
             display: flex;
@@ -129,14 +124,6 @@
             font-weight: bold;
             backdrop-filter: blur(10px);
         }
-        @media (max-width: 600px) {
-            form {
-                padding: 25px;
-            }
-            .title h1 {
-                font-size: 2rem;
-            }
-        }
     </style>
 </head>
 
@@ -173,7 +160,6 @@
                 <label> How often do you use AI tools? </label>
                 <label class="option">
                     <input type="radio" name="ai_usage" value="daily" required > Daily
-                    Daily
                 </label>
                 <label class="option">
                     <input type="radio" name="ai_usage" value="weekly">Weekly</label>
