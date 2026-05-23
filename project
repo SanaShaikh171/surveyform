@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Survey Form</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb);
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .title p {
+            color: #dbeafe;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #f8fafc;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            outline: none;
+            background: rgba(255,255,255,0.9);
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus,
+        select:focus,
+        textarea:focus {
+            transform: scale(1.02);
+            box-shadow: 0 0 0 4px rgba(255,255,255,0.25);
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            background: rgba(255,255,255,0.08);
+            padding: 12px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .option:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            accent-color: #60a5fa;
+            width: 18px;
+            height: 18px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 14px;
+            background: linear-gradient(to right, #3b82f6, #2563eb);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37,99,235,0.4);
+        }
+
+        #success-message {
+            display: none;
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 14px;
+            background: rgba(34,197,94,0.2);
+            border: 1px solid rgba(34,197,94,0.4);
+            color: #dcfce7;
+            text-align: center;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 600px) {
+            form {
+                padding: 25px;
+            }
+
+            .title h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="title">
+            <h1>AI Survey Form</h1>
+            <p>
+                This survey helps us understand how people use AI tools 
+                in their everyday lives.
+            </p>
+        </div>
+
+        <form id="ai-survey">
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="user_name" 
+                    placeholder="Enter your name (optional)"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="age-group">Age Group</label>
+
+                <select id="age-group" name="age_group" required>
+                    <option value="">-- Select your age --</option>
+                    <option value="under-18">Under 18</option>
+                    <option value="18-29">18 - 29</option>
+                    <option value="30-49">30 - 49</option>
+                    <option value="50-plus">50+</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    How often do you use AI tools?
+                </label>
+
+                <label class="option">
+                    <input 
+                        type="radio" 
+                        name="ai_usage" 
+                        value="daily" 
+                        required
+                    >
+                    Daily
+                </label>
+
+                <label class="option">
+                    <input 
+                        type="radio" 
+                        name="ai_usage" 
+                        value="weekly"
+                    >
+                    Weekly
+                </label>
+
+                <label class="option">
+                    <input 
+                        type="radio" 
+                        name="ai_usage" 
+                        value="rarely"
+                    >
+                    Rarely / Never
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    Which AI areas interest or concern you?
+                </label>
+
+                <label class="option">
+                    <input 
+                        type="checkbox" 
+                        name="interests" 
+                        value="productivity"
+                    >
+                    Work Productivity
+                </label>
+
+                <label class="option">
+                    <input 
+                        type="checkbox" 
+                        name="interests" 
+                        value="art"
+                    >
+                    Creative Art & Writing
+                </label>
+
+                <label class="option">
+                    <input 
+                        type="checkbox" 
+                        name="interests" 
+                        value="privacy"
+                    >
+                    Privacy & Data Security
+                </label>
+
+                <label class="option">
+                    <input 
+                        type="checkbox" 
+                        name="interests" 
+                        value="jobs"
+                    >
+                    Future of Jobs
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">
+                    What is your biggest hope or fear regarding AI?
+                </label>
+
+                <textarea 
+                    id="comments"
+                    name="user_comments"
+                    rows="4"
+                    placeholder="Write your thoughts here..."
+                ></textarea>
+            </div>
+
+            <button type="submit">
+                Submit Survey
+            </button>
+
+        </form>
+
+        <div id="success-message">
+            🎉 Thank you! Your survey response was submitted successfully.
+        </div>
+
+    </div>
+
+    <script>
+        const form = document.getElementById("ai-survey");
+        const successMessage = document.getElementById("success-message");
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const formData = new FormData(form);
+
+            const results = {
+                name: formData.get("user_name") || "Anonymous",
+                ageGroup: formData.get("age_group"),
+                aiUsage: formData.get("ai_usage"),
+                interests: formData.getAll("interests"),
+                comments: formData.get("user_comments")
+            };
+
+            console.log("Survey Submitted:", results);
+
+            form.reset();
+
+            form.style.display = "none";
+            successMessage.style.display = "block";
+        });
+    </script>
+
+</body>
+</html>
